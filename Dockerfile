@@ -1,4 +1,4 @@
-ARG SERVER_IMAGE=timinh/php-apache:8.2
+ARG SERVER_IMAGE=timinh/php-apache:8.3
 
 FROM ${SERVER_IMAGE}
 
