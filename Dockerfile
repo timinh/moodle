@@ -8,7 +8,9 @@ ENV ENV_VERSION=${MOODLE_VERSION}
 RUN cd /tmp \
     && git clone -b "$ENV_VERSION" git://git.moodle.org/moodle.git moodle \
     && mv moodle/* /var/www/html/ \
+    && mkdir -p /var/www/moodledata \
     && chown -R www-data:www-data /var/www/html \
+    && chown -R www-data:www-data /var/www/moodledata \
     && chmod -R 755 /var/www/html
 
 COPY ./vhost.conf /etc/apache2/sites-enabled/000-default.conf
