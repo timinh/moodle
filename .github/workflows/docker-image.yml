@@ -19,7 +19,7 @@ jobs:
       id: docker_build
       env:
         SOURCE_TAG: ${{steps.tag_name.outputs.SOURCE_TAG}}
-      run: docker build . --build-arg MOODLE_VERSION=${{ steps.tag_name.outputs.SOURCE_TAG }} --file Dockerfile --tag timinh/moodle:latest && docker build . --build-arg MOODLE_VERSION=${{ steps.tag_name.outputs.SOURCE_TAG }} --file Dockerfile --tag timinh/moodle:${{ steps.tag_name.outputs.SOURCE_TAG }}
+      run: docker build . --build-arg SERVER_IMAGE=timinh/php-apache:8.4 --build-arg MOODLE_VERSION=${{ steps.tag_name.outputs.SOURCE_TAG }} --file Dockerfile --tag timinh/moodle:latest && docker build . --build-arg SERVER_IMAGE=timinh/php-apache:8.4 --build-arg MOODLE_VERSION=${{ steps.tag_name.outputs.SOURCE_TAG }} --file Dockerfile --tag timinh/moodle:${{ steps.tag_name.outputs.SOURCE_TAG }}
     - name: Push the Docker image
       id: docker_publish
       env:
