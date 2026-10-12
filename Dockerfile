@@ -6,7 +6,7 @@ ARG MOODLE_VERSION=MOODLE_500_STABLE
 ENV ENV_VERSION=${MOODLE_VERSION}
 
 RUN cd /tmp \
-    && git clone -b "$ENV_VERSION" git://git.moodle.org/moodle.git moodle \
+    && git clone -b v"$ENV_VERSION" git://git.moodle.org/moodle.git moodle \
     && mv moodle/* /var/www/html/ \
     && mkdir -p /var/www/moodledata \
     && chown -R www-data:www-data /var/www/html \
